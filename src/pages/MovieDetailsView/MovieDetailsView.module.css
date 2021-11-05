@@ -1,0 +1,27 @@
+.navBox {
+  padding-top: 40px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+.navList {
+  max-width: 450px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navLink {
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 700;
+  padding: 15;
+  color: rgb(94, 93, 93);
+}
+
+.navActive {
+  display: inline-block;
+  font-weight: 700;
+  padding: 15px;
+  color: #1f77b3;
+  border: 1px solid #1f77b3;
+  border-radius: 10px;
+}

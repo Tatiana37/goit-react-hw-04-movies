@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieReviews } from '../../services/APIService';
+import s from '../Reviews/Reviews.module.css';
 
 
 export default function Reviews() {
@@ -19,8 +20,10 @@ export default function Reviews() {
             <ul>
                 {reviews.map(({ id, author, content }) => (
                     <li key={id}>
-                        <h2>{author}</h2>
-                        <p>{content}</p>
+                        <div className={s.reviewBox}>
+                            <h2 className={s.title }>{author}</h2>
+                            <p className={s.content}>{content}</p>
+                    </div>
                 </li>
             ))}
             </ul>

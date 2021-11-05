@@ -1,0 +1,16 @@
+.reviewBox {
+  padding: 35px 0;
+}
+.title {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: rgb(41, 41, 41);
+}
+
+.content {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(61, 61, 61);
+  margin-bottom: 15px;
+}
