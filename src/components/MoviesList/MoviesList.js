@@ -1,31 +1,31 @@
 import { Link, useLocation } from "react-router-dom";
-import { posterUrl } from "../../services/APIService";
-import defaultPoster from '../../images/movie-poster.jpg';
+
 import PropTypes from 'prop-types';
+import s from '../MoviesList/MoviesList.module.css';
+import { MovieItem } from "../MovieItem/MovieItem";
+
 
  const MoviesList = ({movies}) => {
     const location = useLocation();
 
     return (
-        <>
-            <ul>
-                {movies.map(movie => (
-                    <Link key={movie.id} to={{
-                        pathname: `/movie/${movie.id}`,
+        <div>
+            <ul className={s.list}>
+                {movies.map(({ id, title, name, poster_path, release_date, vote_average}) => (
+                    <li key={ id} className={s.listItem}>
+                    <Link key={id} to={{
+                        pathname: `/movie/${id}`,
                         state: {
                             from: location,
                         }
                     }}>
-                        <li><h2>{movie.title || movie.name}</h2>
-                            <img src={movie.poster_path ? `${posterUrl}${movie.poster_path}` : defaultPoster} alt={movie.title} width="200" />
-                            <p>Release date: {movie.release_date}</p>
-                            <p>Rating: {movie.vote_average }</p>
-                        </li>
+                            <MovieItem title={title} name={name} poster={poster_path} rating={vote_average} release={release_date}/>
                     </Link>
+                        </li>
                 ))}
             </ul>
         
-        </>
+        </div>
     )
 }
 

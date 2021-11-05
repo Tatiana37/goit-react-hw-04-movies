@@ -1,0 +1,16 @@
+.title {
+  font-size: 18px;
+  color: rgb(41, 41, 41);
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.release {
+  color: rgb(61, 61, 61);
+  margin-bottom: 5px;
+}
+
+.rating {
+  color: rgb(61, 61, 61);
+}
