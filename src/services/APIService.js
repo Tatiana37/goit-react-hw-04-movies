@@ -19,7 +19,11 @@ export const getSearchMovies = async query => {
     try {
         const {
             data: { results },
-        } = await axios.get(`search/movie/?api_key=${MY_API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`)
+        } = await axios.get(
+            `search/movie?api_key=${MY_API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`,
+        );
+
+        // console.log(results);
         return results;
     } catch (err) {
         console.log(err.message);
