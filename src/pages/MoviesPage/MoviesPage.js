@@ -7,7 +7,7 @@ import {
     // useLocation,
 } from 'react-router-dom';
 import { getSearchMovies } from '../../services/APIService';
-import { PageHeading } from "../../components/PageHeading/PageHeading";
+import  PageHeading  from "../../components/PageHeading/PageHeading";
 import Searchbar from "../../components/SearchBar/SearchBar";
 // import queryString from 'query-string';
 import PendingView from "../../components/PendingView/PendingView";
@@ -43,7 +43,7 @@ const MoviesPage = () => {
 
         getSearchMovies(searchQuery).then(movies => {
             setMovies(prev=> [...prev, ...movies]);
-        })
+        }).catch(err => console.log(err))
     },[searchQuery])
     
     

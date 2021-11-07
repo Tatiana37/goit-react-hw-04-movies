@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import  MoviesList  from "../../components/MoviesList/MoviesList";
-import { PageHeading } from "../../components/PageHeading/PageHeading";
+import  PageHeading  from "../../components/PageHeading/PageHeading";
 import PendingView from "../../components/PendingView/PendingView";
 import { getTrending } from "../../services/APIService";
 // import Button from '../../components/Button/Button';
