@@ -38,7 +38,7 @@ function App() {
               <MovieDetailsView />
             </Route>
             
-          <Route >
+          <Route path="/ErrorView">
             <ErrorView />
             </Route>
 

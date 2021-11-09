@@ -1,15 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import {
-    // Switch,
     Route,
     useRouteMatch,
-    // useHistory,
-    // useLocation,
+    useHistory,
+    useLocation,
 } from 'react-router-dom';
 import { getSearchMovies } from '../../services/APIService';
 import  PageHeading  from "../../components/PageHeading/PageHeading";
 import Searchbar from "../../components/SearchBar/SearchBar";
-// import queryString from 'query-string';
 import PendingView from "../../components/PendingView/PendingView";
 
 
@@ -18,40 +16,29 @@ const MoviesList = lazy(() => import('../../components/MoviesList/MoviesList' /*
 
 
 const MoviesPage = () => {
-    const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
 
-    // const history = useHistory();
-    // const location = useLocation();
+    const history = useHistory();
+    const location = useLocation();
     const { path } = useRouteMatch();
+    const search = new URLSearchParams(location.search).get('query') ?? '';
+    // console.log(search)
 
-        // useEffect(() => {
-        // const movie = queryString.parse(location.search).query;
-        // if (!movie) {
-        //     setMovies([]);
-        // }
-        // if (movie) {
-        //     getSearchMovies(movie).then(movies =>  setMovies(prev =>[...prev, ...movies]));
-        //     setSearchQuery('');
-        // }
-        // }, [location.search])
     
     useEffect(() => {
-        if (searchQuery === '') {
+        if (search === '') {
             return
         }
 
-        getSearchMovies(searchQuery).then(movies => {
+        getSearchMovies(search).then(movies => {
             setMovies(prev=> [...prev, ...movies]);
         }).catch(err => console.log(err))
-    },[searchQuery])
+    },[search])
     
     
     const handleFormSubmit = searchQuery => {
-    setSearchQuery(searchQuery);
-        // setMovies([]);
-        // history.push({ ...location, search: `?searchValue=${searchQuery}` });
-    // setLoading(true);
+    history.push({ ...location, search: `?query=${searchQuery}` });
+        setMovies([]);
     }
 
 

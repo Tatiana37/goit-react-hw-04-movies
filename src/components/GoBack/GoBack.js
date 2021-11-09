@@ -6,7 +6,7 @@ export const GoBack = () => {
     const location = useLocation();
 
     const handleGoBack = () => {
-        history.push(location?.state?.from ?? '/');
+        history.push(location.state?.from ?? '/');
     };
     return (
         <>

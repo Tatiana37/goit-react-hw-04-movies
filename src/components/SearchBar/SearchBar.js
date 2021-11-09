@@ -1,16 +1,17 @@
 import { useState } from 'react';
-// import {useHistory, useLocation} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import PropTypes from 'prop-types';
 import s from './SearchBar.module.css';
+import pathToSprite from "../../images/sprite.svg";
 
 
 export default function Searchbar({ onSubmit}) {
   
   const [searchValue, setSearchValue] = useState('');
 
-  // const history = useHistory();
-  // const location = useLocation();
+  const history = useHistory();
+  const location = useLocation();
 
     const handleSearchChange = e => {
       setSearchValue(e.target.value.toLowerCase())
@@ -26,7 +27,7 @@ export default function Searchbar({ onSubmit}) {
       })
       return;
       }
-      // history.push({ ...location, search: `?searchValue=${searchValue}` });
+      history.push({ ...location, search: `?query=${searchValue}` });
       onSubmit(searchValue);
       setSearchValue('');
     }
@@ -34,8 +35,10 @@ export default function Searchbar({ onSubmit}) {
         return (
         <header className={s.Searchbar}>
             <form className={s.SearchForm} onSubmit={handleSearchSubmit}>
-        <button type="submit" className={s.SearchFormButton}>
-      <span className={s.SearchFormButtonLabel}>Search</span>
+              <button type="submit" className={s.SearchFormButton}>
+                <svg className={s.icon}>
+                  <use href={pathToSprite + '#icon-search'}></use>
+                </svg>
     </button>
 
     <input

@@ -1,13 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-
 import PropTypes from 'prop-types';
 import s from '../MoviesList/MoviesList.module.css';
 import { MovieItem } from "../MovieItem/MovieItem";
 
 
- const MoviesList = ({movies}) => {
+const MoviesList = ({movies}) => {
     const location = useLocation();
-
+    // console.log(location)
+    // const search = new URLSearchParams(location.search).get('query') ?? '';
+    // console.log(search)
     return (
         <div>
             <ul className={s.list}>

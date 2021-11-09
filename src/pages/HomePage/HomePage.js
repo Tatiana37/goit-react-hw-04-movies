@@ -18,10 +18,10 @@ const HomePage = () => {
         // setLoading(true);
         getTrending().then(movies => {
             setMovies(movies);
-            window.scrollTo({
-                top: document.documentElement.clientWidth,
-                behavior: 'smooth',
-            });
+            // window.scrollTo({
+            //     top: document.documentElement.clientWidth,
+            //     behavior: 'smooth',
+            // });
         })
     }, []);
 
