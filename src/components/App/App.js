@@ -5,10 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Container from '../Container/Container';
 import AppBar from '../AppBar/AppBar';
 import PendingView from '../PageHeading/PageHeading';
-// import HomePage from '../../pages/HomePage/HomePage';
-// import MoviesPage from '../../pages/MoviesPage/MoviesPage';
-// import ErrorView from '../ErrorView/ErrorView';
-// import  MovieDetailsView  from '../../pages/MovieDetailsView/MovieDetailsView';
+
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage')  /* webpackChunkName: "HomePage" */);
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage')  /* webpackChunkName: "MoviesPage" */);
@@ -36,14 +33,14 @@ function App() {
 
             <Route path="/movie/:movieId">
               <MovieDetailsView />
-            </Route>
-            
-          <Route path="/ErrorView">
+          </Route>
+          
+          <Route path="*">
             <ErrorView />
             </Route>
 
             <Route>
-              <Redirect to="/error"/>.
+              <Redirect to="/"/>.
             </Route>
           </Switch>
           </Suspense>
